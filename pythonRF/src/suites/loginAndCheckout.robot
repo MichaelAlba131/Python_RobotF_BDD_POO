@@ -32,4 +32,3 @@ Cenário 04: Criar um usuário e realizar a compra de um produto
     Entao validar se usuario foi criado com sucesso
     E adicionar um produto na categoria    WOMEN
     E fechar o browser
-
