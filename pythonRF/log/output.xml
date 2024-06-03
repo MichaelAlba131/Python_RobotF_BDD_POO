@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.1 on win32)" generated="2024-06-03T20:12:09.939356" rpa="false" schemaversion="5">
+<suite id="s1" name="loginAndCheckout" source="C:\Python_RobotF_BDD_POO\pythonRF\src\suites\loginAndCheckout.robot">
+<test id="s1-t1" name="Cenário 01: Criar um usuário - sucesso" line="5">
+<kw name="Abrir o browser" owner="hooks">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:10.309511" level="INFO">Opening browser 'chrome' to base url 'http://www.automationpractice.pl/index.php'.</msg>
+<arg>${hooks.URL}</arg>
+<arg>${hooks.BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-03T20:12:10.308515" elapsed="8.432108"/>
+</kw>
+<status status="PASS" start="2024-06-03T20:12:10.307481" elapsed="8.433142"/>
+</kw>
+<kw name="Dado Acessar a página de login do sistema" owner="loginPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:18.744147" level="INFO">Clicking element '//a[contains(text(),'Sign in')]'.</msg>
+<arg>${login.buttonSigninMenu}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T20:12:18.743151" elapsed="1.042269"/>
+</kw>
+<status status="PASS" start="2024-06-03T20:12:18.742135" elapsed="1.043285"/>
+</kw>
+<kw name="E criar um novo usuario" owner="addNewUserPage">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-03T20:12:19.787414" level="INFO">${random_value} = 82204</msg>
+<var>${random_value}</var>
+<arg>random.randint(0, 100000)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-03T20:12:19.786452" elapsed="0.000962"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:19.788412" level="INFO">Typing text 'michael.alba82204@uorak.com' into text field '//input[@id='email_create']'.</msg>
+<arg>${addNewUser.inputCreateAccont_Email}</arg>
+<arg>michael.alba${random_value}@uorak.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T20:12:19.788412" elapsed="0.228590"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:20.017998" level="INFO">Clicking element '//button[@id='SubmitCreate']'.</msg>
+<arg>${addNewUser.buttonCreateAnAccount}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T20:12:20.017002" elapsed="0.100381"/>
+</kw>
+<status status="PASS" start="2024-06-03T20:12:19.786452" elapsed="0.330931"/>
+</kw>
+<kw name="Quando preencher o formulario e cadastrar" owner="addNewUserPage">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-03T20:12:23.118877" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-03T20:12:20.118380" elapsed="3.000497"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${addNewUser.radioTitle}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-03T20:12:23.119383" elapsed="0.014965"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:23.135345" level="INFO">Clicking element '//div[@id ='uniform-id_gender1']'.</msg>
+<arg>${addNewUser.radioTitle}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T20:12:23.135345" elapsed="0.048916"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Preencher Campos do formulario de cadastro" owner="addNewUserPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:23.186256" level="INFO">Typing text 'Michael' into text field '//input[@id ='customer_firstname']'.</msg>
+<arg>${addNewUser.inputFirstName}</arg>
+<arg>Michael</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T20:12:23.185258" elapsed="0.118716"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:23.307964" level="INFO">Typing text 'Alba' into text field '//input[@id ='customer_lastname']'.</msg>
+<arg>${addNewUser.inputLastName}</arg>
+<arg>Alba</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T20:12:23.303974" elapsed="0.131703"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:23.436672" level="INFO">Clicking element '//input[@id ='email']'.</msg>
+<arg>${addNewUser.actionButtonEmail}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T20:12:23.436672" elapsed="0.091305"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:23.529973" level="INFO">Typing text 'Teste@123' into text field '//input[@id ='passwd']'.</msg>
+<arg>${addNewUser.actionButtonPassword}</arg>
+<arg>Teste@123</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T20:12:23.527977" elapsed="0.207573"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:23.737551" level="INFO">Selecting options from selection list '//select[@id ='days']' by index 5.</msg>
+<arg>${addNewUser.selectBirthDay}</arg>
+<arg>5</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-06-03T20:12:23.736548" elapsed="0.243531"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:23.982071" level="INFO">Selecting options from selection list '//select[@id ='months']' by index 2.</msg>
+<arg>${addNewUser.selectBirthMonth}</arg>
+<arg>2</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-06-03T20:12:23.981075" elapsed="0.147144"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:24.130212" level="INFO">Selecting options from selection list '//select[@id ='years']' by value 1994.</msg>
+<arg>${addNewUser.selectBirthYear}</arg>
+<arg>1994</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-06-03T20:12:24.129217" elapsed="0.122816"/>
+</kw>
+<status status="PASS" start="2024-06-03T20:12:23.185258" elapsed="1.067772"/>
+</kw>
+<arg>${fillAll}</arg>
+<arg>Preencher Campos do formulario de cadastro</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-06-03T20:12:23.184261" elapsed="1.068769"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:24.255027" level="INFO">Clicking element '//button[@id ='submitAccount']'.</msg>
+<arg>${addNewUser.buttonRegister}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T20:12:24.253030" elapsed="2.360750"/>
+</kw>
+<arg>${True}</arg>
+<status status="PASS" start="2024-06-03T20:12:20.117383" elapsed="6.496397"/>
+</kw>
+<kw name="Entao validar se usuario foi criado com sucesso" owner="addNewUserPage">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:26.636720" level="INFO">Current page contains text 'Your account has been created.'.</msg>
+<arg>Your account has been created.</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-06-03T20:12:26.614776" elapsed="0.022941"/>
+</kw>
+<status status="PASS" start="2024-06-03T20:12:26.613780" elapsed="0.023937"/>
+</kw>
+<kw name="E fechar o browser" owner="loginPage">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-06-03T20:12:26.637717" elapsed="2.209905"/>
+</kw>
+<status status="PASS" start="2024-06-03T20:12:26.637717" elapsed="2.209905"/>
+</kw>
+<status status="PASS" start="2024-06-03T20:12:10.306483" elapsed="18.541139"/>
+</test>
+<test id="s1-t2" name="Cenário 02: Criar um usuário - insucesso" line="13">
+<kw name="Abrir o browser" owner="hooks">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:28.849621" level="INFO">Opening browser 'chrome' to base url 'http://www.automationpractice.pl/index.php'.</msg>
+<arg>${hooks.URL}</arg>
+<arg>${hooks.BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-03T20:12:28.848582" elapsed="8.256230"/>
+</kw>
+<status status="PASS" start="2024-06-03T20:12:28.848582" elapsed="8.256230"/>
+</kw>
+<kw name="Dado Acessar a página de login do sistema" owner="loginPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:37.106807" level="INFO">Clicking element '//a[contains(text(),'Sign in')]'.</msg>
+<arg>${login.buttonSigninMenu}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T20:12:37.105810" elapsed="1.045249"/>
+</kw>
+<status status="PASS" start="2024-06-03T20:12:37.105810" elapsed="1.045249"/>
+</kw>
+<kw name="E criar um novo usuario" owner="addNewUserPage">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-03T20:12:38.153057" level="INFO">${random_value} = 19726</msg>
+<var>${random_value}</var>
+<arg>random.randint(0, 100000)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-03T20:12:38.152056" elapsed="0.001001"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:38.155049" level="INFO">Typing text 'michael.alba19726@uorak.com' into text field '//input[@id='email_create']'.</msg>
+<arg>${addNewUser.inputCreateAccont_Email}</arg>
+<arg>michael.alba${random_value}@uorak.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T20:12:38.154052" elapsed="0.206572"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:38.361624" level="INFO">Clicking element '//button[@id='SubmitCreate']'.</msg>
+<arg>${addNewUser.buttonCreateAnAccount}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T20:12:38.360624" elapsed="0.088843"/>
+</kw>
+<status status="PASS" start="2024-06-03T20:12:38.152056" elapsed="0.297411"/>
+</kw>
+<kw name="Quando preencher o formulario e cadastrar" owner="addNewUserPage">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-03T20:12:41.450650" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-03T20:12:38.450467" elapsed="3.000183"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${addNewUser.radioTitle}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-03T20:12:41.450650" elapsed="0.015340"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:41.466987" level="INFO">Clicking element '//div[@id ='uniform-id_gender1']'.</msg>
+<arg>${addNewUser.radioTitle}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T20:12:41.465990" elapsed="0.060881"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${fillAll}</arg>
+<arg>Preencher Campos do formulario de cadastro</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-06-03T20:12:41.526871" elapsed="0.000994"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:41.528862" level="INFO">Clicking element '//button[@id ='submitAccount']'.</msg>
+<arg>${addNewUser.buttonRegister}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T20:12:41.527865" elapsed="0.530015"/>
+</kw>
+<arg>${False}</arg>
+<status status="PASS" start="2024-06-03T20:12:38.450467" elapsed="3.608409"/>
+</kw>
+<kw name="Entao validar a mensagem de insucesso" owner="addNewUserPage">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:42.101753" level="INFO">Current page contains text 'There are 3 error'.</msg>
+<arg>There are 3 error</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-06-03T20:12:42.058876" elapsed="0.042877"/>
+</kw>
+<status status="PASS" start="2024-06-03T20:12:42.058876" elapsed="0.042877"/>
+</kw>
+<kw name="E fechar o browser" owner="loginPage">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-06-03T20:12:42.102790" elapsed="2.217956"/>
+</kw>
+<status status="PASS" start="2024-06-03T20:12:42.101753" elapsed="2.218993"/>
+</kw>
+<status status="PASS" start="2024-06-03T20:12:28.848582" elapsed="15.473127"/>
+</test>
+<test id="s1-t3" name="Cenário 03: Login com user ja cadastrado" line="21">
+<kw name="Abrir o browser" owner="hooks">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:44.323703" level="INFO">Opening browser 'chrome' to base url 'http://www.automationpractice.pl/index.php'.</msg>
+<arg>${hooks.URL}</arg>
+<arg>${hooks.BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-03T20:12:44.322707" elapsed="6.588729"/>
+</kw>
+<status status="PASS" start="2024-06-03T20:12:44.322707" elapsed="6.589727"/>
+</kw>
+<kw name="Dado Acessar a página de login do sistema" owner="loginPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:50.915426" level="INFO">Clicking element '//a[contains(text(),'Sign in')]'.</msg>
+<msg time="2024-06-03T20:12:50.924402" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.142)
+Stacktrace:
+	GetHandleVerifier [0x00007FF762C51F52+60322]
+	(No symbol) [0x00007FF762BCCEC9]
+	(No symbol) [0x00007FF762A87EBA]
+	(No symbol) [0x00007FF762A5D5A5]
+	(No symbol) [0x00007FF762B036B7]
+	(No symbol) [0x00007FF762B1B331]
+	(No symbol) [0x00007FF762AFBFC3]
+	(No symbol) [0x00007FF762AC9617]
+	(No symbol) [0x00007FF762ACA211]
+	GetHandleVerifier [0x00007FF762F694AD+3301629]
+	GetHandleVerifier [0x00007FF762FB36D3+3605283]
+	GetHandleVerifier [0x00007FF762FA9450+3563680]
+	GetHandleVerifier [0x00007FF762D04326+790390]
+	(No symbol) [0x00007FF762BD750F]
+	(No symbol) [0x00007FF762BD3404]
+	(No symbol) [0x00007FF762BD3592]
+	(No symbol) [0x00007FF762BC2F9F]
+	BaseThreadInitThunk [0x00007FF86246257D+29]
+	RtlUserThreadStart [0x00007FF86372AA48+40]
+</msg>
+<msg time="2024-06-03T20:12:50.925400" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.142)
+Stacktrace:
+	GetHandleVerifier [0x00007FF762C51F52+60322]
+	(No symbol) [0x00007FF762BCCEC9]
+	(No symbol) [0x00007FF762A87EBA]
+	(No symbol) [0x00007FF762A5D5A5]
+	(No symbol) [0x00007FF762B036B7]
+	(No symbol) [0x00007FF762B1B331]
+	(No symbol) [0x00007FF762AFBFC3]
+	(No symbol) [0x00007FF762AC9617]
+	(No symbol) [0x00007FF762ACA211]
+	GetHandleVerifier [0x00007FF762F694AD+3301629]
+	GetHandleVerifier [0x00007FF762FB36D3+3605283]
+	GetHandleVerifier [0x00007FF762FA9450+3563680]
+	GetHandleVerifier [0x00007FF762D04326+790390]
+	(No symbol) [0x00007FF762BD750F]
+	(No symbol) [0x00007FF762BD3404]
+	(No symbol) [0x00007FF762BD3592]
+	(No symbol) [0x00007FF762BC2F9F]
+	BaseThreadInitThunk [0x00007FF86246257D+29]
+	RtlUserThreadStart [0x00007FF86372AA48+40]
+</msg>
+<arg>${login.buttonSigninMenu}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-06-03T20:12:50.913432" elapsed="0.024931">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.142)
+Stacktrace:
+	GetHandleVerifier [0x00007FF762C51F52+60322]
+	(No symbol) [0x00007FF762BCCEC9]
+	(No symbol) [0x00007FF762A87EBA]
+	(No symbol) [0x00007FF762A5D5A5]
+	(No symbol) [0x00007FF762B036B7]
+	(No symbol) [0x00007FF762B1B331]
+	(No symbol) [0x00007FF762AFBFC3]
+	(No symbol) [0x00007FF762AC9617]
+	(No symbol) [0x00007FF762ACA211]
+	GetHandleVerifier [0x00007FF762F694AD+3301629]
+	GetHandleVerifier [0x00007FF762FB36D3+3605283]
+	GetHandleVerifier [0x00007FF762FA9450+3563680]
+	GetHandleVerifier [0x00007FF762D04326+790390]
+	(No symbol) [0x00007FF762BD750F]
+	(No symbol) [0x00007FF762BD3404]
+	(No symbol) [0x00007FF762BD3592]
+	(No symbol) [0x00007FF762BC2F9F]
+	BaseThreadInitThunk [0x00007FF86246257D+29]
+	RtlUserThreadStart [0x00007FF86372AA48+40]
+</status>
+</kw>
+<status status="FAIL" start="2024-06-03T20:12:50.912434" elapsed="0.026928">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.142)
+Stacktrace:
+	GetHandleVerifier [0x00007FF762C51F52+60322]
+	(No symbol) [0x00007FF762BCCEC9]
+	(No symbol) [0x00007FF762A87EBA]
+	(No symbol) [0x00007FF762A5D5A5]
+	(No symbol) [0x00007FF762B036B7]
+	(No symbol) [0x00007FF762B1B331]
+	(No symbol) [0x00007FF762AFBFC3]
+	(No symbol) [0x00007FF762AC9617]
+	(No symbol) [0x00007FF762ACA211]
+	GetHandleVerifier [0x00007FF762F694AD+3301629]
+	GetHandleVerifier [0x00007FF762FB36D3+3605283]
+	GetHandleVerifier [0x00007FF762FA9450+3563680]
+	GetHandleVerifier [0x00007FF762D04326+790390]
+	(No symbol) [0x00007FF762BD750F]
+	(No symbol) [0x00007FF762BD3404]
+	(No symbol) [0x00007FF762BD3592]
+	(No symbol) [0x00007FF762BC2F9F]
+	BaseThreadInitThunk [0x00007FF86246257D+29]
+	RtlUserThreadStart [0x00007FF86372AA48+40]
+</status>
+</kw>
+<kw name="E inserir os dados de login" owner="loginPage">
+<status status="NOT RUN" start="2024-06-03T20:12:50.940360" elapsed="0.000000"/>
+</kw>
+<kw name="E fechar o browser" owner="loginPage">
+<status status="NOT RUN" start="2024-06-03T20:12:50.941357" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-06-03T20:12:44.321709" elapsed="6.619648">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.142)
+Stacktrace:
+	GetHandleVerifier [0x00007FF762C51F52+60322]
+	(No symbol) [0x00007FF762BCCEC9]
+	(No symbol) [0x00007FF762A87EBA]
+	(No symbol) [0x00007FF762A5D5A5]
+	(No symbol) [0x00007FF762B036B7]
+	(No symbol) [0x00007FF762B1B331]
+	(No symbol) [0x00007FF762AFBFC3]
+	(No symbol) [0x00007FF762AC9617]
+	(No symbol) [0x00007FF762ACA211]
+	GetHandleVerifier [0x00007FF762F694AD+3301629]
+	GetHandleVerifier [0x00007FF762FB36D3+3605283]
+	GetHandleVerifier [0x00007FF762FA9450+3563680]
+	GetHandleVerifier [0x00007FF762D04326+790390]
+	(No symbol) [0x00007FF762BD750F]
+	(No symbol) [0x00007FF762BD3404]
+	(No symbol) [0x00007FF762BD3592]
+	(No symbol) [0x00007FF762BC2F9F]
+	BaseThreadInitThunk [0x00007FF86246257D+29]
+	RtlUserThreadStart [0x00007FF86372AA48+40]
+</status>
+</test>
+<test id="s1-t4" name="Cenário 04: Criar um usuário e realizar a compra de um produto" line="27">
+<kw name="Abrir o browser" owner="hooks">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:12:50.948337" level="INFO">Opening browser 'chrome' to base url 'http://www.automationpractice.pl/index.php'.</msg>
+<arg>${hooks.URL}</arg>
+<arg>${hooks.BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-03T20:12:50.945348" elapsed="12.688871"/>
+</kw>
+<status status="PASS" start="2024-06-03T20:12:50.944348" elapsed="12.689871"/>
+</kw>
+<kw name="Dado Acessar a página de login do sistema" owner="loginPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T20:13:03.639206" level="INFO">Clicking element '//a[contains(text(),'Sign in')]'.</msg>
+<msg time="2024-06-03T20:13:03.645189" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.142)
+Stacktrace:
+	GetHandleVerifier [0x00007FF762C51F52+60322]
+	(No symbol) [0x00007FF762BCCEC9]
+	(No symbol) [0x00007FF762A87EBA]
+	(No symbol) [0x00007FF762A5D5A5]
+	(No symbol) [0x00007FF762B036B7]
+	(No symbol) [0x00007FF762B1B331]
+	(No symbol) [0x00007FF762AFBFC3]
+	(No symbol) [0x00007FF762AC9617]
+	(No symbol) [0x00007FF762ACA211]
+	GetHandleVerifier [0x00007FF762F694AD+3301629]
+	GetHandleVerifier [0x00007FF762FB36D3+3605283]
+	GetHandleVerifier [0x00007FF762FA9450+3563680]
+	GetHandleVerifier [0x00007FF762D04326+790390]
+	(No symbol) [0x00007FF762BD750F]
+	(No symbol) [0x00007FF762BD3404]
+	(No symbol) [0x00007FF762BD3592]
+	(No symbol) [0x00007FF762BC2F9F]
+	BaseThreadInitThunk [0x00007FF86246257D+29]
+	RtlUserThreadStart [0x00007FF86372AA48+40]
+</msg>
+<msg time="2024-06-03T20:13:03.646188" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.142)
+Stacktrace:
+	GetHandleVerifier [0x00007FF762C51F52+60322]
+	(No symbol) [0x00007FF762BCCEC9]
+	(No symbol) [0x00007FF762A87EBA]
+	(No symbol) [0x00007FF762A5D5A5]
+	(No symbol) [0x00007FF762B036B7]
+	(No symbol) [0x00007FF762B1B331]
+	(No symbol) [0x00007FF762AFBFC3]
+	(No symbol) [0x00007FF762AC9617]
+	(No symbol) [0x00007FF762ACA211]
+	GetHandleVerifier [0x00007FF762F694AD+3301629]
+	GetHandleVerifier [0x00007FF762FB36D3+3605283]
+	GetHandleVerifier [0x00007FF762FA9450+3563680]
+	GetHandleVerifier [0x00007FF762D04326+790390]
+	(No symbol) [0x00007FF762BD750F]
+	(No symbol) [0x00007FF762BD3404]
+	(No symbol) [0x00007FF762BD3592]
+	(No symbol) [0x00007FF762BC2F9F]
+	BaseThreadInitThunk [0x00007FF86246257D+29]
+	RtlUserThreadStart [0x00007FF86372AA48+40]
+</msg>
+<arg>${login.buttonSigninMenu}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-06-03T20:13:03.636214" elapsed="0.012964">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.142)
+Stacktrace:
+	GetHandleVerifier [0x00007FF762C51F52+60322]
+	(No symbol) [0x00007FF762BCCEC9]
+	(No symbol) [0x00007FF762A87EBA]
+	(No symbol) [0x00007FF762A5D5A5]
+	(No symbol) [0x00007FF762B036B7]
+	(No symbol) [0x00007FF762B1B331]
+	(No symbol) [0x00007FF762AFBFC3]
+	(No symbol) [0x00007FF762AC9617]
+	(No symbol) [0x00007FF762ACA211]
+	GetHandleVerifier [0x00007FF762F694AD+3301629]
+	GetHandleVerifier [0x00007FF762FB36D3+3605283]
+	GetHandleVerifier [0x00007FF762FA9450+3563680]
+	GetHandleVerifier [0x00007FF762D04326+790390]
+	(No symbol) [0x00007FF762BD750F]
+	(No symbol) [0x00007FF762BD3404]
+	(No symbol) [0x00007FF762BD3592]
+	(No symbol) [0x00007FF762BC2F9F]
+	BaseThreadInitThunk [0x00007FF86246257D+29]
+	RtlUserThreadStart [0x00007FF86372AA48+40]
+</status>
+</kw>
+<status status="FAIL" start="2024-06-03T20:13:03.635217" elapsed="0.014958">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.142)
+Stacktrace:
+	GetHandleVerifier [0x00007FF762C51F52+60322]
+	(No symbol) [0x00007FF762BCCEC9]
+	(No symbol) [0x00007FF762A87EBA]
+	(No symbol) [0x00007FF762A5D5A5]
+	(No symbol) [0x00007FF762B036B7]
+	(No symbol) [0x00007FF762B1B331]
+	(No symbol) [0x00007FF762AFBFC3]
+	(No symbol) [0x00007FF762AC9617]
+	(No symbol) [0x00007FF762ACA211]
+	GetHandleVerifier [0x00007FF762F694AD+3301629]
+	GetHandleVerifier [0x00007FF762FB36D3+3605283]
+	GetHandleVerifier [0x00007FF762FA9450+3563680]
+	GetHandleVerifier [0x00007FF762D04326+790390]
+	(No symbol) [0x00007FF762BD750F]
+	(No symbol) [0x00007FF762BD3404]
+	(No symbol) [0x00007FF762BD3592]
+	(No symbol) [0x00007FF762BC2F9F]
+	BaseThreadInitThunk [0x00007FF86246257D+29]
+	RtlUserThreadStart [0x00007FF86372AA48+40]
+</status>
+</kw>
+<kw name="E criar um novo usuario" owner="addNewUserPage">
+<status status="NOT RUN" start="2024-06-03T20:13:03.650175" elapsed="0.000999"/>
+</kw>
+<kw name="Quando preencher o formulario e cadastrar" owner="addNewUserPage">
+<arg>${True}</arg>
+<status status="NOT RUN" start="2024-06-03T20:13:03.651174" elapsed="0.000997"/>
+</kw>
+<kw name="Entao validar se usuario foi criado com sucesso" owner="addNewUserPage">
+<status status="NOT RUN" start="2024-06-03T20:13:03.652171" elapsed="0.000000"/>
+</kw>
+<kw name="E adicionar um produto na categoria" owner="checkoutPage">
+<arg>WOMEN</arg>
+<status status="NOT RUN" start="2024-06-03T20:13:03.653168" elapsed="0.000997"/>
+</kw>
+<kw name="E fechar o browser" owner="loginPage">
+<status status="NOT RUN" start="2024-06-03T20:13:03.654165" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-06-03T20:12:50.942355" elapsed="12.712809">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.142)
+Stacktrace:
+	GetHandleVerifier [0x00007FF762C51F52+60322]
+	(No symbol) [0x00007FF762BCCEC9]
+	(No symbol) [0x00007FF762A87EBA]
+	(No symbol) [0x00007FF762A5D5A5]
+	(No symbol) [0x00007FF762B036B7]
+	(No symbol) [0x00007FF762B1B331]
+	(No symbol) [0x00007FF762AFBFC3]
+	(No symbol) [0x00007FF762AC9617]
+	(No symbol) [0x00007FF762ACA211]
+	GetHandleVerifier [0x00007FF762F694AD+3301629]
+	GetHandleVerifier [0x00007FF762FB36D3+3605283]
+	GetHandleVerifier [0x00007FF762FA9450+3563680]
+	GetHandleVerifier [0x00007FF762D04326+790390]
+	(No symbol) [0x00007FF762BD750F]
+	(No symbol) [0x00007FF762BD3404]
+	(No symbol) [0x00007FF762BD3592]
+	(No symbol) [0x00007FF762BC2F9F]
+	BaseThreadInitThunk [0x00007FF86246257D+29]
+	RtlUserThreadStart [0x00007FF86372AA48+40]
+</status>
+</test>
+<status status="FAIL" start="2024-06-03T20:12:09.945355" elapsed="53.710805"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="2" skip="0" id="s1" name="loginAndCheckout">loginAndCheckout</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-06-03T20:12:50.924402" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.142)
+Stacktrace:
+	GetHandleVerifier [0x00007FF762C51F52+60322]
+	(No symbol) [0x00007FF762BCCEC9]
+	(No symbol) [0x00007FF762A87EBA]
+	(No symbol) [0x00007FF762A5D5A5]
+	(No symbol) [0x00007FF762B036B7]
+	(No symbol) [0x00007FF762B1B331]
+	(No symbol) [0x00007FF762AFBFC3]
+	(No symbol) [0x00007FF762AC9617]
+	(No symbol) [0x00007FF762ACA211]
+	GetHandleVerifier [0x00007FF762F694AD+3301629]
+	GetHandleVerifier [0x00007FF762FB36D3+3605283]
+	GetHandleVerifier [0x00007FF762FA9450+3563680]
+	GetHandleVerifier [0x00007FF762D04326+790390]
+	(No symbol) [0x00007FF762BD750F]
+	(No symbol) [0x00007FF762BD3404]
+	(No symbol) [0x00007FF762BD3592]
+	(No symbol) [0x00007FF762BC2F9F]
+	BaseThreadInitThunk [0x00007FF86246257D+29]
+	RtlUserThreadStart [0x00007FF86372AA48+40]
+</msg>
+<msg time="2024-06-03T20:13:03.645189" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.142)
+Stacktrace:
+	GetHandleVerifier [0x00007FF762C51F52+60322]
+	(No symbol) [0x00007FF762BCCEC9]
+	(No symbol) [0x00007FF762A87EBA]
+	(No symbol) [0x00007FF762A5D5A5]
+	(No symbol) [0x00007FF762B036B7]
+	(No symbol) [0x00007FF762B1B331]
+	(No symbol) [0x00007FF762AFBFC3]
+	(No symbol) [0x00007FF762AC9617]
+	(No symbol) [0x00007FF762ACA211]
+	GetHandleVerifier [0x00007FF762F694AD+3301629]
+	GetHandleVerifier [0x00007FF762FB36D3+3605283]
+	GetHandleVerifier [0x00007FF762FA9450+3563680]
+	GetHandleVerifier [0x00007FF762D04326+790390]
+	(No symbol) [0x00007FF762BD750F]
+	(No symbol) [0x00007FF762BD3404]
+	(No symbol) [0x00007FF762BD3592]
+	(No symbol) [0x00007FF762BC2F9F]
+	BaseThreadInitThunk [0x00007FF86246257D+29]
+	RtlUserThreadStart [0x00007FF86372AA48+40]
+</msg>
+</errors>
+</robot>
