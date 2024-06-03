@@ -1,0 +1,11 @@
+image: python:3
+
+stages:
+  - test
+
+robot:
+  stage: test
+  script:
+    - pip install -r robotframework
+    - pip install -r robotframework-seleniumlibrary
+    - robot --pythonpath $CI_PROJECT_DIR src/suites/loginAndCheckout.robot
