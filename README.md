@@ -28,6 +28,7 @@
     <li>Consulte a documentação oficial do Robot Framework para obter mais informações sobre como escrever testes e configurar o ambiente: <a href="https://robotframework.org/">https://robotframework.org/</a></li>
     <li>Use um IDE como PyCharm ou Visual Studio Code para escrever e executar seus testes com facilidade</li>
   </ul>
+  [Video Title]([[https://www.youtube.com/watch?v=VIDEO_ID](https://drive.google.com/uc?id=16Cqq9tIdFUJfc_MEswlIZTeft8bTvPQI&export=download)])
 </body>
 </html>
 
